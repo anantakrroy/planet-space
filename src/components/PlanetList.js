@@ -24,7 +24,7 @@ class PlanetList extends React.Component {
         if (!this.state.favoritePlanets.includes(p.name)) {
             this.setState({ favoritePlanets: [...this.state.favoritePlanets, p.name] });
         } else {
-            let idxOfPlanet = this.state.favoritePlanets.indexOf(p);
+            let idxOfPlanet = this.state.favoritePlanets.indexOf(p.name);
             this.state.favoritePlanets.splice(idxOfPlanet, 1);
             this.setState({ favoritePlanets: [...this.state.favoritePlanets] });
         }
@@ -32,7 +32,6 @@ class PlanetList extends React.Component {
 
     render() {
         const planets = this.state.planets;
-        console.log(planets.length);
         return (
             <div className="App">
                 <Header />

@@ -143,14 +143,14 @@ li {
     display: flex;
     flex-direction: column;
     position: sticky;
-    top: 5%;
+    top: 6%;
     z-index: 20;
     margin-left: 62%;
     width: 35%;
     height: 15vmin;
   }
   a, a.selected {
-    margin: 0;
+    margin: 6px 0;
     padding: 5px;
   }
   .App-logo {

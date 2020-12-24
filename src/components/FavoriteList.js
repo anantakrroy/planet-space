@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from './Header';
+import PlanetList from './PlanetList';
 
 class FavoriteList extends React.Component {
     render() {
+        console.log("Props passed ? ", this.props)
         return (
             <div className="App">
-                <Header />
-                <div className="loading">Hello</div>
+                <PlanetList favoritePlanets={this.props.favoritePlanets}/>
             </div>
         )
     }

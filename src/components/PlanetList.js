@@ -9,7 +9,7 @@ class PlanetList extends React.Component {
         super(props);
         this.state = {
             planets: [],
-            favoritePlanets: [],
+            favoritePlanets: this.props.favoritePlanets,
         }
     }
 
@@ -45,7 +45,7 @@ class PlanetList extends React.Component {
                                         <Planet planet={planet} />
                                     </div>
                                     <div className="favorite-icon">
-                                        <span className="starIcon" onClick={() => this.makeFavorite(planet)}>
+                                        <span className="starIcon" onClick={() => this.props.updateFavorites(planet)}>
                                             {this.state.favoritePlanets.includes(planet.name) ? <FaStar /> : <FaRegStar />}
                                         </span>
                                     </div>

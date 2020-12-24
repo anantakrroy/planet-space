@@ -6,9 +6,23 @@ import './App.css';
 
 class App extends React.Component {
 
-  state = {
-    isAll: true,
-    isFav: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAll: true,
+      isFav: false,
+      favoritePlanets: []
+    }
+  }
+
+  updateFavorites(p) {
+    if (!this.state.favoritePlanets.includes(p.name)) {
+      this.setState({ favoritePlanets: [...this.state.favoritePlanets, p.name] });
+    } else {
+      let idxOfPlanet = this.state.favoritePlanets.indexOf(p.name);
+      this.state.favoritePlanets.splice(idxOfPlanet, 1);
+      this.setState({ favoritePlanets: [...this.state.favoritePlanets] });
+    }
   }
 
   render() {
@@ -17,17 +31,18 @@ class App extends React.Component {
     return (
       <Router>
         <nav>
-          <NavLink to="/" className={allPlanets ? "selected" : ""} onClick={() => this.setState({ isAll: true, isFav : false })}>All Planets</NavLink>
-          <NavLink to="/favorites" className={favTab ? "selected" : ""} onClick={() => this.setState({ isFav: true , isAll : false})}>Favorites</NavLink>
+          <NavLink to="/" className={allPlanets ? "selected" : ""} onClick={() => this.setState({ isAll: true, isFav: false })}>All Planets</NavLink>
+          <NavLink to="/favorites" className={favTab ? "selected" : ""} onClick={() => this.setState({ isFav: true, isAll: false })}>Favorites</NavLink>
         </nav>
         <Route
           path="/"
-          component={PlanetList}
+          component={() => <PlanetList favoritePlanets={this.state.favoritePlanets} updateFavorites={planet => this.updateFavorites(planet)} />}
           exact
         />
         <Route
           path="/favorites"
-          component={FavoriteList}
+          component={() => <FavoriteList favoritePlanets={this.state.favoritePlanets} />}
+          exact
         />
       </Router>
     )

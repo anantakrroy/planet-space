@@ -1,8 +1,3 @@
-body {
-  background-image: url("./images/background.jpg");
-}
-
-
 .App {
   max-width: 100%;
   margin: 0 auto;
@@ -128,18 +123,21 @@ li {
     max-width: 100%;
   }
   .App-header {
-    text-align: unset;
     position: sticky;
-    background-color: white;
+    display: flex;
+    background-color: #291e57;
     top: 0;
-    box-shadow: 0px 16px 15px rgb(186, 98, 186);
+    box-shadow: 0px 16px 15px rgb(44 44 69);
     z-index: 10;
+    max-width: 100%;
+    margin: 0 auto;
   }
   ul {
-    display: block;
-    max-width: 80%;
-    position: -ms-page;
-    left: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 82%;
+    margin: 0 auto;
+    padding: 0;
   }
   nav {
     display: flex;
@@ -149,5 +147,14 @@ li {
     z-index: 20;
     margin-left: 62%;
     width: 35%;
+    height: 15vmin;
+  }
+  a, a.selected {
+    margin: 0;
+    padding: 5px;
+  }
+  .App-logo {
+    position: relative;
+    left: 1em;
   }
 }

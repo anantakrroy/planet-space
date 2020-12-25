@@ -74,6 +74,10 @@ ul {
   margin: 0 auto 20px;
 }
 
+ul.favList {
+  display: block;
+}
+
 li {
   display: flex;
   flex-direction: rownp;
@@ -88,7 +92,8 @@ p {
 .planet-card {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  padding: 0 5vmin;
 }
 
 .planet-info {
@@ -114,7 +119,18 @@ li {
   border: 2px solid purple;
   margin: 12px;
   border-radius: 18px 0 18px 0;
-  padding: 0 0 0 45px;
+}
+
+.fav-card {
+  padding: 10px;
+  font-family: 'Neucha', cursive;
+  font-size: 1.5em;
+  margin: 2vmin;
+}
+
+.favLiItem {
+  text-align: center;
+  display: block;
 }
 
 @media (max-width: 780px) {
@@ -122,6 +138,7 @@ li {
     display: block;
     max-width: 100%;
   }
+
   .App-header {
     position: sticky;
     display: flex;
@@ -132,6 +149,12 @@ li {
     max-width: 100%;
     margin: 0 auto;
   }
+
+  .App-logo {
+    position: relative;
+    left: 1em;
+  }
+
   ul {
     display: flex;
     flex-direction: column;
@@ -139,6 +162,7 @@ li {
     margin: 0 auto;
     padding: 0;
   }
+
   nav {
     display: flex;
     flex-direction: column;
@@ -149,12 +173,16 @@ li {
     width: 35%;
     height: 15vmin;
   }
+
   a, a.selected {
     margin: 6px 0;
     padding: 5px;
   }
-  .App-logo {
-    position: relative;
-    left: 1em;
+
+  .fav-card {
+    padding: 7px;
+    font-family: 'Neucha', cursive;
+    font-size: 1.5em;
+    margin: 1vmin;
   }
 }

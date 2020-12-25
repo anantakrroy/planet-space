@@ -4,21 +4,14 @@
 }
 
 .App-header {
-  position: sticky;
-  display: flex;
-  background-color: #291e57;
-  top: 0;
-  box-shadow: 0px 16px 15px rgb(44 44 69);
-  z-index: 10;
-  max-width: 80%;
-  margin: 0 auto;
+  min-width: 15%;
 }
 
 .App-logo {
-  height: 18vmin;
+  height: 15vmin;
   border-radius: 10% 50%;
   pointer-events: none;
-  width: 25vmin;
+  width: 23vmin;
   margin: 10px;
   position: relative;
   left: 3em;
@@ -27,13 +20,22 @@
   background-color: white;
 }
 
+.App-tabs {
+  display: flex;
+  padding: 10vmin;
+  justify-content: center;
+  width: 30%;
+}
+
 nav {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  background-color: #291e57;
+  justify-content: space-between;
   position: sticky;
-  top: 6em;
-  z-index: 20;
-  margin-right: 12%;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 8px 8px rgb(44 44 69);
 }
 
 a.selected {
@@ -61,7 +63,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 30%;
+  max-height: 20%;
 }
 
 ul {
@@ -138,23 +140,22 @@ li {
     display: block;
     max-width: 100%;
   }
-
   .App-header {
-    position: sticky;
     display: flex;
-    background-color: #291e57;
-    top: 0;
-    box-shadow: 0px 16px 15px rgb(44 44 69);
     z-index: 10;
-    max-width: 100%;
-    margin: 0 auto;
+    align-items: center;
+    min-width: 48%;
   }
-
+  .App-tabs {
+    display: flex;
+    padding: 2vmin 6vmin;
+    flex-direction: column;
+    min-width: 35%;
+  }
   .App-logo {
     position: relative;
     left: 1em;
   }
-
   ul {
     display: flex;
     flex-direction: column;
@@ -162,23 +163,20 @@ li {
     margin: 0 auto;
     padding: 0;
   }
-
   nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    background-color: #291e57;
+    justify-content: space-between;
     position: sticky;
-    top: 6%;
-    z-index: 20;
-    margin-left: 62%;
-    width: 35%;
-    height: 15vmin;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0px 8px 8px rgb(44 44 69);
   }
-
   a, a.selected {
     margin: 6px 0;
-    padding: 5px;
+    text-align: center;
   }
-
   .fav-card {
     padding: 7px;
     font-family: 'Neucha', cursive;

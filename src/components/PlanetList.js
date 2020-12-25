@@ -1,7 +1,5 @@
 import React from 'react';
 import Planet from './Planet';
-import Header from './Header';
-import FavoriteList from './FavoriteList';
 import { FaStar, FaRegStar } from "react-icons/fa";
 
 
@@ -37,7 +35,9 @@ class PlanetList extends React.Component {
         return (
             <div className="App">
                 {planets.length === 0 ?
-                    <div className="loading">Loading....</div> :
+                    <div className="loading">
+                        <h2>Loading....</h2>
+                    </div> :
                     <ul>
                         {planets.map((planet) => (
                             <li key={planet.id}>

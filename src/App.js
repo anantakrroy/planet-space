@@ -3,7 +3,8 @@ import { Route, BrowserRouter as Router, NavLink } from "react-router-dom";
 import PlanetList from './components/PlanetList';
 import FavoriteList from './components/FavoriteList';
 import './App.css';
-import Header from "./components/Header";
+// import Header from "./components/Header";
+import logo from './logo.jpg';
 
 class App extends React.Component {
 
@@ -31,10 +32,15 @@ class App extends React.Component {
     const favTab = this.state.isFav;
     return (
       <Router>
-        <Header />
+        {/* <Header /> */}
         <nav>
-          <NavLink to="/" className={allPlanets ? "selected" : ""} onClick={() => this.setState({ isAll: true, isFav: false })}>All Planets</NavLink>
-          <NavLink to="/favorites" className={favTab ? "selected" : ""} onClick={() => this.setState({ isFav: true, isAll: false })}>Favorites</NavLink>
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+          </div>
+          <div className="App-tabs">
+            <NavLink to="/" className={allPlanets ? "selected" : ""} onClick={() => this.setState({ isAll: true, isFav: false })}>All Planets</NavLink>
+            <NavLink to="/favorites" className={favTab ? "selected" : ""} onClick={() => this.setState({ isFav: true, isAll: false })}>Favorites</NavLink>
+          </div>
         </nav>
         <Route
           path="/"

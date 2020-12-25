@@ -19,16 +19,6 @@ class PlanetList extends React.Component {
         this.setState({ planets: jsonres });
     }
 
-    makeFavorite(p) {
-        if (!this.state.favoritePlanets.includes(p.name)) {
-            this.setState({ favoritePlanets: [...this.state.favoritePlanets, p.name] });
-        } else {
-            let idxOfPlanet = this.state.favoritePlanets.indexOf(p.name);
-            this.state.favoritePlanets.splice(idxOfPlanet, 1);
-            this.setState({ favoritePlanets: [...this.state.favoritePlanets] });
-        }
-    }
-
     render() {
         const planets = this.state.planets;
         let favorites = this.state.favoritePlanets;

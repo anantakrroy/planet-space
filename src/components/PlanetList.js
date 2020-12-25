@@ -1,6 +1,7 @@
 import React from 'react';
 import Planet from './Planet';
 import Header from './Header';
+import FavoriteList from './FavoriteList';
 import { FaStar, FaRegStar } from "react-icons/fa";
 
 
@@ -32,9 +33,9 @@ class PlanetList extends React.Component {
 
     render() {
         const planets = this.state.planets;
+        let favorites = this.state.favoritePlanets;
         return (
             <div className="App">
-                <Header />
                 {planets.length === 0 ?
                     <div className="loading">Loading....</div> :
                     <ul>
@@ -46,13 +47,14 @@ class PlanetList extends React.Component {
                                     </div>
                                     <div className="favorite-icon">
                                         <span className="starIcon" onClick={() => this.props.updateFavorites(planet)}>
-                                            {this.state.favoritePlanets.includes(planet.name) ? <FaStar /> : <FaRegStar />}
+                                            {favorites.includes(planet.name) ? <FaStar /> : <FaRegStar />}
                                         </span>
                                     </div>
                                 </div>
                             </li>
                         ))}
-                    </ul>}
+                    </ul>
+                }
             </div>
         );
     }

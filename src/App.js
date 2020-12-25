@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, NavLink } from "react-router-dom";
 import PlanetList from './components/PlanetList';
 import FavoriteList from './components/FavoriteList';
 import './App.css';
+import Header from "./components/Header";
 
 class App extends React.Component {
 
@@ -30,13 +31,14 @@ class App extends React.Component {
     const favTab = this.state.isFav;
     return (
       <Router>
+        <Header />
         <nav>
           <NavLink to="/" className={allPlanets ? "selected" : ""} onClick={() => this.setState({ isAll: true, isFav: false })}>All Planets</NavLink>
           <NavLink to="/favorites" className={favTab ? "selected" : ""} onClick={() => this.setState({ isFav: true, isAll: false })}>Favorites</NavLink>
         </nav>
         <Route
           path="/"
-          component={() => <PlanetList favoritePlanets={this.state.favoritePlanets} updateFavorites={planet => this.updateFavorites(planet)} />}
+          component={() => <PlanetList favoritePlanets={this.state.favoritePlanets} updateFavorites={(planet) => this.updateFavorites(planet)} />}
           exact
         />
         <Route

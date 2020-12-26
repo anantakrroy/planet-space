@@ -1,30 +1,23 @@
-import React from 'react';
-import Header from './Header';
+import React, { useContext } from 'react';
 import Planet from './Planet';
-import PlanetList from './PlanetList';
+import { PlanetContext } from './PlanetContext';
 
-class FavoriteList extends React.Component {
-    render() {
-        const favPlanets = this.props.favoritePlanets;
-        console.log("Props passed ? ", favPlanets);
-        return (
-            <div className="App">
-                {favPlanets.length === 0 ?
-                    <div className="loading">
-                        <h2>No favorite planets selected</h2>
-                    </div> :
-                    <ul className="favList">
-                        {favPlanets.map((planet) => (
-                            <li key={planet.toLowerCase()} className="favLiItem">
-                                <div className="fav-card">
-                                    {planet}
-                                </div>
-                            </li>
-                        ))}
-                    </ul>}
-            </div>
-        )
-    }
+function FavoriteList() {
+    const [planets, favPlanets, setFavs] = useContext(PlanetContext);
+    console.log("Favorite list >> ", favPlanets);
+    return (
+        <div className="App">
+            {favPlanets.length === 0 ?
+                <div className="loading">
+                    <h2>No favorite planets selected</h2>
+                </div> :
+                <ul className="favList">
+                    {favPlanets.map((planet) => (
+                        <Planet planet={planet} favPlanets={favPlanets} key={planet.id}/>
+                    ))}
+                </ul>}
+        </div>
+    )
 }
 
 export default FavoriteList;
